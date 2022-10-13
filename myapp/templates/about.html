@@ -1,0 +1,71 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<style>
+ 
+    /* Set display to none for image*/
+    #main2{
+        display: none;
+    }
+</style>
+
+{% include 'sidebar.html' %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main">
+              
+            
+                
+                      
+        
+                <form method ="POST" enctype="multipart/form-data" novalidate>
+                    <label for="exampleInputEmail1" class="form-label"style="display: flex;font-size: 18px;">Content</label>
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form.content}}
+                    
+                    <button type="submit" class="btn btn-primary" style="display: flex;margin-top: 16px;">Submit</button>  
+                    
+                </form>       
+                {% if messages%}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            {% comment %} <div class="col-sm-2">
+                        <div class="image_check"><img src="/static/image/check.jpg"></div></div> {% endcomment %}
+                        <div class="col-sm-12"><div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                          
+                            <center>{{ message }}</center> 
+                    {% endfor %}
+                    {%endif%}    
+                </div>
+              </ul>
+          
+                
+        
+            
+    
+                    
+                    
+                     
+
+                      
+                </div>
+            </div>
+
+            <!-- /.container-fluid -->
+            <!-- /.row -->
+        </div>
+      
+    </div>
+   
+ 
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+
+
+   

@@ -145,3 +145,21 @@
 input#btnID {
     width: 76px;
 }
+
+.book textarea#id_description {
+    max-width: 431px;
+}
+.book textarea#id_summary {
+    max-width: 431px;
+}
+.book input#id_title {
+    max-width: 431px;
+}
+img.logotop {
+    max-width: 78px;
+    padding: 5px
+}
+ul.nav.navbar-nav.side-nav.book li a {
+    max-width: 224px;
+    border: 1px solid;
+}

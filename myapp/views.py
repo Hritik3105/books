@@ -1,14 +1,14 @@
 from turtle import pos
 from .models import *
 from django.shortcuts import render,redirect
-from .form import BookForm
+from .form import BookForm,AboutForm
 from .serializers import BookSerializer, ContentSerializer
-from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from bs4 import BeautifulSoup
 from urllib.parse import urlsplit
+from django.contrib import messages
 # Create your views here.
 
 
@@ -23,7 +23,8 @@ def AddBook(request):
             
             post_item.save()
             print(post_item.content)
-      
+            messages.success(request,"Data submitted successfully")
+            
             return redirect("/")
         else:
             
@@ -33,6 +34,29 @@ def AddBook(request):
         form =BookForm()
            
     return render(request,"admin.html",{"form":form})
+
+def AddContent(request):
+    if request.method =="POST":
+        form1=AboutForm(request.POST,request.FILES)
+        if form1.is_valid():
+            print("enter4")
+          
+            form1.instance.status =1
+            post_item=form1.save()
+            
+            post_item.save()
+            print(post_item.content)
+            messages.success(request,"Data submitted successfully")
+            
+            return redirect("about")
+        else:
+            
+            
+            return render(request,"about.html",{"form":form1})
+    else: 
+        form =AboutForm()
+           
+    return render(request,"about.html",{"form":form})
 
 
 class Book(APIView):

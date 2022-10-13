@@ -1,6 +1,6 @@
 from distutils.command.upload import upload
 from django.forms import ModelForm
-from .models import Books
+from .models import Books,About
 from django import forms
 
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -14,9 +14,11 @@ class BookForm(ModelForm):
         
         }
     ))
-    summary = forms.CharField(label="Summary",required=False,widget=forms.TextInput(
+    summary = forms.CharField(label="Summary",required=False,widget=forms.Textarea(
         attrs={
-        'class':'form-control',    
+        'class':'form-control', 
+         'rows':3, 
+         'cols':15   
         
         }
 
@@ -25,9 +27,11 @@ class BookForm(ModelForm):
     image=forms.FileField(required=False)
     
     
-    description=forms.CharField(required=False,label="Description", widget=forms.TextInput(
+    description=forms.CharField(required=False,label="Description", widget=forms.Textarea(
         attrs={
         'class':'form-control',
+        'rows':4, 
+         'cols':15
         }
 
     
@@ -38,6 +42,16 @@ class BookForm(ModelForm):
     class Meta:
         model=Books
         fields=["title","summary","image","description","content"]
+        
+        
+class AboutForm(ModelForm):
+    
+ 
+    content=RichTextUploadingField()
+    
+    class Meta:
+        model=About
+        fields=["content"]
         
         
 
