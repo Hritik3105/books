@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path,include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include('myapp.urls')), 
     path('api-auth/', include('rest_framework.urls')), 
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    # path('ckeditor/', include('ckeditor_uploader.urls'))
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

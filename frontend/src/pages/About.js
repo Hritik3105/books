@@ -19,7 +19,7 @@ const About = () => {
     return (
         <div className='container'>
             <div className='row'>
-                <div dangerouslySetInnerHTML={createMarkup(booksContent.content)} />
+                <div dangerouslySetInnerHTML={createMarkup(about)} />
             </div>
         </div>
     );
