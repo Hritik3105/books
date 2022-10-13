@@ -1,22 +1,29 @@
 /* eslint-disable */
 import React from 'react';
 import { getBookContent } from '../utils/Api';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ContentBook = () => {
-
-    const [books, Setbooks] = React.useState([])
+    const params = useParams();
+    const [booksContent, SetbooksContent] = React.useState([])
     React.useEffect(()=>{
-        getBookContent({id:54}).then((res)=>{
-
+        getBookContent({id:params.id}).then((res)=>{
+            SetbooksContent(res)
             console.log('getBookContent',res)
         }).catch((err)=>{
 
         })
     },[])
-    return (
-        <div>
-            Hii ContentBook
+    function createMarkup(data) {
+        return {__html: data};  
+      }
+    return ( 
+        <div className='container'>
+            <div className='row'>
+        <div dangerouslySetInnerHTML={createMarkup(booksContent.content)} />
         </div>
+     </div>
+
     );
 }
 

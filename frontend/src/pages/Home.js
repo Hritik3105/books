@@ -13,7 +13,7 @@ const Home = () => {
             console.log('resBooks',res)
         }).catch((err)=>{
 
-        })
+        }) 
     },[])
     return (
         <div className='container'>
