@@ -13,5 +13,5 @@ class ContentSerializer(serializers.ModelSerializer):
        
     class Meta:
         model = Books
-        fields = ['id','content']
+        fields = ['id','content','status']
 

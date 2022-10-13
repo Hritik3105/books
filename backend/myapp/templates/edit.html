@@ -1,0 +1,107 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<style>
+    span.django-toggle-switch-slider {
+        border-radius: 15px;
+    }
+    span.django-toggle-switch-slider::before {
+        border-radius: 50%;
+    }   
+
+    /* Set display to none for image*/
+ 
+</style>
+
+{%include 'sidebar.html'%}
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main">
+              
+                 <div class="col-md-12 book">
+                
+                        
+            
+                    <form method ="POST" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <label for="exampleInputEmail1" class="form-label" >Title</label>
+                        {{form.title}}<br>
+                        <label for="exampleInputEmail1" class="form-label">Summary</label>
+                        {{form.summary}}<br>
+                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                        {{form.image}}<br>
+                        <div class="radio">
+                        <label for="exampleInputEmail1" class="form-label">Is_Published</label>
+                        {{form.status}}<br>
+                        </div>
+
+                        <label for="exampleInputEmail1" class="form-label">Description</label>
+                        {{form.description}}<br>
+                    
+                        {{form.media}}
+                        {{form.content}}
+                       
+                        <div class="row">
+                            <div class="col-md-12 d-flex"style="display: flex;max-width: 431;">
+                               
+                                <button type="submit" class="btn btn-primary">Update</button>  
+                            </div>
+                        </div>
+                    </form>       
+                    {% if messages%}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <div class="container-fluid p-0">
+                            <div class="row">
+                                {% comment %} <div class="col-sm-2">
+                            <div class="image_check"><img src="/static/image/check.jpg"></div></div> {% endcomment %}
+                            <div class="col-sm-12"><div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                            
+                                <center>{{ message }}</center> 
+                        {% endfor %}
+                        {%endif%}    
+                    </div>
+                    </ul>
+            
+                    
+        
+            
+    
+                    
+                    
+                     
+
+                
+                </div>
+            </div>
+
+            <!-- /.container-fluid -->
+            <!-- /.row -->
+        </div>
+      
+    </div>
+   
+ 
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+<script>
+    function show() {
+ 
+        /* Access image by id and change
+        the display property to block*/
+        document.getElementById('main2')
+                .style.display = "block";
+        
+
+        document.getElementById('btnID')
+                .style.display = "none";
+    }
+
+   
+  
+       
+</script>

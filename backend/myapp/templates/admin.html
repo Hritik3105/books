@@ -9,7 +9,13 @@
     #main2{
         display: none;
     }
-    
+    span.django-toggle-switch-slider {
+        border-radius: 15px;
+    }
+    span.django-toggle-switch-slider::before {
+        border-radius: 50%;
+    }   
+
 </style>
 
 {%include 'sidebar.html'%}
@@ -33,7 +39,10 @@
                         {{form.image}}<br>
                         <label for="exampleInputEmail1" class="form-label">Description</label>
                         {{form.description}}<br>
-                    
+                        <div class="radio">
+                        <label for="exampleInputEmail1" class="form-label">Is_Published</label>
+                        {{form.status}}<br>
+                        </div>
                         <div id="main2" >
                         {{form.media}}
                         {{form.content}}
@@ -78,7 +87,8 @@
       
     </div>
    
- 
+
+
     <!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
 <script>
@@ -93,7 +103,7 @@
         document.getElementById('btnID')
                 .style.display = "none";
     }
-
+    $("[name='status']").bootstrapSwitch();
    
   
        

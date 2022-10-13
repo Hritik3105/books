@@ -52,8 +52,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'django_toggle_switch_widget',
     'ckeditor',
-     "corsheaders",
+    "corsheaders",
     'ckeditor_uploader',
     'rest_framework'
 ]

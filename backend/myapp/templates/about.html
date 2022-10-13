@@ -26,8 +26,11 @@
                     {% csrf_token %}
                     {{form.media}}
                     {{form.content}}
-                    
-                    <button type="submit" class="btn btn-primary" style="display: flex;margin-top: 16px;">Submit</button>  
+                    {%if status == 1%}
+                    <button type="submit" class="btn btn-primary" style="display: flex;margin-top: 16px;">Update</button>  
+                    {%else%}
+                    <button type="submit" class="btn btn-primary" style="display: flex;margin-top: 16px;">Submit</button> 
+                    {%endif%} 
                     
                 </form>       
                 {% if messages%}

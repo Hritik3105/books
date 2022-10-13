@@ -2,7 +2,7 @@ from distutils.command.upload import upload
 from django.forms import ModelForm
 from .models import Books,About
 from django import forms
-
+from django_toggle_switch_widget.widgets import DjangoToggleSwitchWidget
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -37,11 +37,17 @@ class BookForm(ModelForm):
     
     ))
     
+    
+    
     content=RichTextUploadingField()
     
     class Meta:
         model=Books
-        fields=["title","summary","image","description","content"]
+        fields=["title","summary","image","description","content","status"]
+        widgets = {
+            "status": DjangoToggleSwitchWidget(klass="django-toggle-switch-dark-primary"),
+           
+        }
         
         
 class AboutForm(ModelForm):
@@ -53,6 +59,7 @@ class AboutForm(ModelForm):
         model=About
         fields=["content"]
         
+
         
 
         
