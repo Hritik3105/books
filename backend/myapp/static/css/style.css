@@ -91,19 +91,23 @@
 
     .side-nav>li>a {
         width: 225px;
-        border-bottom: 1px rgba(0,0,0,.3) solid;
+   
     }
 
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: #1a242f !important;
+        background-color:rgb(134 187 224) !important;
+        color: #fff !important;
     }
-}
+    ul.nav.navbar-nav.side-nav.book li a :hover{
+        color: #fff !important;
+    
+    }
 
 .side-nav>li>ul {
     padding: 0;
-    border-bottom: 1px rgba(0,0,0,.3) solid;
+  
 }
 
 .side-nav>li>ul>li>a {
@@ -176,4 +180,78 @@ ul.nav.navbar-nav.side-nav.book li a {
     display: flex;
     justify-content: space-between;
     max-width: 179px;
+}
+
+/* CSS Libraries Used 
+
+*Animate.css by Daniel Eden.
+*FontAwesome 4.7.0
+*Typicons
+
+*/
+.side-nav {
+  background-color:rgb(234 233 234);
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  background-color:#fff;
+  width: 100%;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color:rgb(234 233 234) !important;
+}
+#page-wrapper {
+    padding: 22px 10px;
+    background: rgb(134 187 224) !important;
+    padding: 20px !important;
+    border-radius: 8px;
+}
+.col-md-12.book {
+    width: 100%;
+    background: rgb(255 255 255) !important;
+    max-width: 900;
+    padding: 20px !important;
+    border-radius: 8px;
+}
+ul.nav.navbar-nav.side-nav.book {
+    background: #fff;
+    margin-top: 14px;
+    border: none;
+    border-radius: 15px;
+}
+ul.nav.navbar-nav.side-nav.book li a {
+    max-width: 224px;
+    margin-top: 15px;
+    color: rgb(134 187 224) ;
+    border: 1px solid;
+    border-radius: 12px;
+    background: rgb(255 255 255);
+}
+.page-wrapper1 {
+    padding: 23px;
+}
+div#main {
+    display: flex;
+    justify-content: center;
+}
+div#page-wrapper3 {
+    padding: 20px;
+    background: rgb(134, 187, 224) !important;
+    border-radius:8px;
+}
+div#wrapper {
+    width: 100%;
+}
+a.dropdown-toggle.logout {
+    margin-right: 45px;
+    margin-top: 12px;
+    background: rgb(134 187 224);
+    padding: 10px;
+    border-radius: 8px;
+    color: rgb(255 255 255);
+    font-weight: 700;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: rgb(134 187 224);
 }

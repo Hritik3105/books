@@ -83,7 +83,10 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 ROOT_URLCONF = 'myproj.urls'
+AUTH_USER_MODEL = 'myapp.user'
 
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -109,7 +112,7 @@ WSGI_APPLICATION = 'myproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'books',
+        'NAME': 'tinyapp',
         "USER":"root",
         "PASSWORD":"",
         "HOST":"localhost"

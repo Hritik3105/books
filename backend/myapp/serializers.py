@@ -1,4 +1,4 @@
-from .models import Books
+from .models import Books,About
 from rest_framework import serializers
 
 
@@ -14,4 +14,10 @@ class ContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Books
         fields = ['id','content','status']
+
+class AboutSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=About
+        fields = ['content']
 

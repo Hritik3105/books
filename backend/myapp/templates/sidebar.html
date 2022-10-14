@@ -3,6 +3,7 @@
 <div id="noty-holder"></div>
 <div id="wrapper">
     <!-- Navigation -->
+    <div class="container">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -12,18 +13,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="home">
                 <img src="/static/img/logo.png"class="logotop">
             
             </a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav ">
-            {% comment %} <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
-                </a> {% endcomment %}
-            </li>            
+            <li>
+                <ul class="nav navbar-right top-nav1">
+                    
+                
             <li class="dropdown">
-                {% comment %} <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a> {% endcomment %}
+                
+                <a href="{%url 'logout'%}" class="dropdown-toggle logout" data-toggle="dropdown" style="">Logout</a> 
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
@@ -32,16 +35,19 @@
                 </ul>
             </li>
         </ul>
+        </li>
+        </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse" style="padding:0 0 0 0px;min-height: 59px;">
             <ul class="nav navbar-nav side-nav book">
                 
             <li>
                 <a href="{% url 'about' %}"><i class="fa fa-fw fa-user-plus"></i>About</a>
-                <a href="{% url 'list' %}"><i class="fa fa-fw fa-user-plus"></i>List</a>
+                <a href="{% url 'list' %}"><i class="fa fa-fw fa-user-plus"></i>Books</a>
             </li>    
                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </nav>
+</div>

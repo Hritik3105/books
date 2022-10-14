@@ -36,7 +36,7 @@ Axios.defaults.baseURL = `${global.serverUrl}`;
 
   //About Us
   export async function getAbout() {
-    const DATA = await Axios.get('/about',{
+    const DATA = await Axios.get('/about-page',{
     }).then((res) => {
       if (res.data === 200) {
         return res.data;
