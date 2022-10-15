@@ -41,22 +41,6 @@ def user_login(request):
   return render(request, "login.html",{"form":form})
 
 
-def signup(request):
-    if request.method == 'POST':
-        accountform = AddCreateForm(request.POST)
-        if accountform.is_valid():
-            new_user = accountform.save()
-            new_user.set_password(
-                accountform.cleaned_data.get('password')
-            )
-            if accountform.save():
-                messages.success(request,'Account Register Successfully.')
-                return redirect('/login')
-        else:
-            return render(request,"Register/signup.html",{'form':accountform})
-
-    form = AddCreateForm()
-    return render(request,"signup.html",{'form':form})
 
 def AddBook(request):
     if request.method =="POST":
@@ -174,7 +158,7 @@ def List(request):
 def EditBook(request,id):
     if request.method=="POST":
         item=get_object_or_404(Books,id=id)
-        form=BookForm(request.POST,instance=item)
+        form=BookForm(request.POST,request.FILES,instance=item)
         print(form)
 
         if form.is_valid():
@@ -228,8 +212,6 @@ class AboutAPI(APIView):
             return Response(resp)
 
 
-
-    
 
 @csrf_exempt
 def userLogout(request):

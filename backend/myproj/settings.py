@@ -112,7 +112,7 @@ WSGI_APPLICATION = 'myproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tinyapp',
+        'NAME': 'book',
         "USER":"root",
         "PASSWORD":"",
         "HOST":"localhost"
