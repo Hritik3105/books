@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   font-weight: 400;
   font-style: normal;
@@ -83,3 +84,111 @@ body {
 a.nolink.book__title {
   text-decoration: none;
 }
+=======
+body {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--color-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 1rem 1rem 0;
+  background-color: var(--page-bg);
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.navbar-dark .navbar-brand {
+   color: #87ceeb !important;
+  min-width: 255px;
+  text-align: center;
+  }
+  div#collapsibleNavbar {
+  justify-content: center;
+  }
+  li.nav-item {
+  padding: 0 31px 0 37px;
+  }
+  a.nav-link {
+  color: #000 !important;
+  }
+  .navbar-dark .navbar-toggler {
+   color: rgb(0 0 0);
+  border-color: rgb(2 2 2);
+  }
+  .book__art img {
+    width: 100%;
+}
+.fs16 {
+  font-size: 1rem;
+}
+.color-text, .color-text a:link, a:link.color-text {
+  color: var(--color-default) !important;
+}
+.mt1 {
+  margin-top: 1rem;
+  max-width: 325px;
+  color:#333;
+}
+a.nolink.book__title {
+  text-decoration: none;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-link a:hover {
+  color: #000;
+}
+
+.nav-link.active a {
+  color: #3897D3;
+  font-weight: bold;
+  border-bottom: 2px solid #3897D3;
+  padding-bottom: 5px;
+}
+.norecord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+>>>>>>> 0e1eaa0afeea83e3083bf186064800c3092176d9
