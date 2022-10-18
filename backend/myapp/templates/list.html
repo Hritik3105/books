@@ -24,7 +24,7 @@
               
             <table id="example" class="display nowrap" style="width:100%">
                 <div class="row w-100">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px;">
                       <div class="x_panel">
                         <div class="x_title">
                           <h2>Books</h2>
@@ -40,7 +40,8 @@
                                       <center>{{ message }}</center> 
                               {% endfor %}
                               {%endif%}    
-                           {% comment %} <a href="#" style="float:right;"><i class="fa fa-plus mr-2"></i> Create New Insurance</a> {% endcomment %}
+                              
+                           <a href="{% url 'home' %}" style="float:right;" class="addbook"><i class="fa fa-plus mr-2"></i> Add Book</a> 
                          
                           <div class="clearfix"></div>
                         </div>

@@ -1,10 +1,6 @@
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-@media(min-width:768px) {
-    body {
-        width: 100%;
-    }
-}
+
 
 #wrapper {
     padding-left: 0;    
@@ -62,6 +58,7 @@
 /* Side Navigation */
 
 @media(min-width:768px) {
+}
     .side-nav {
         position: fixed;
         top: 60px;
@@ -193,7 +190,6 @@ ul.nav.navbar-nav.side-nav.book li a {
 .col-md-12.book {
     width: 100%;
     background: rgb(255 255 255) !important;
-    max-width: 900;
     padding: 20px !important;
     border-radius: 8px;
 }
@@ -298,6 +294,7 @@ div#page-wrapper01 {
     background: rgb(134, 187, 224) !important;
     border-radius: 8px;
     height: 86.6vh;
+    align-items: center;
 }
 a.btn.text-secondary.px-0 {
     padding: 0 17px !important;
@@ -320,6 +317,7 @@ div#page-wrapper3 {
     border-radius: 8px;
     height: 100vh;
     display: flex;
+    align-items: center;
 }
 div#datatable_wrapper {
     width: 100%;
@@ -333,4 +331,19 @@ div#datatable_wrapper {
 .post {
     max-width: 855px;
     margin: auto;
+}
+div#page-wrapper {
+    padding: 30px 12px !important;
+    width: 100%;
+}
+a.addbook {
+    padding: 5px 44px;
+    border: 1px solid;
+    min-width: 148px;
+    margin-bottom: 8px;
+}
+@media(min-width:768px) {
+    body {
+        width: 100%;
+    }
 }
