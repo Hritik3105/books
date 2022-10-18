@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'ckeditor',
     "corsheaders",
     'ckeditor_uploader',
-    'rest_framework'
+    'rest_framework',
+    'image_uploader_widget',
 ]
 import os
 
@@ -115,7 +116,10 @@ DATABASES = {
         'NAME': 'book',
         "USER":"root",
         "PASSWORD":"",
-        "HOST":"localhost"
+        "HOST":"localhost",
+        'OPTIONS': {
+         "init_command": "SET foreign_key_checks = 0;",
+    },
         
     }
 }

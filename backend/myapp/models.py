@@ -7,7 +7,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class User(AbstractBaseUser,PermissionsMixin):
-    username 	= models.CharField(max_length=255,default="")
     email 		= models.EmailField(_('email'),unique=True)
     password    = models.CharField(max_length=255,default="")
     is_staff 	= models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.')

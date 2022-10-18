@@ -1,10 +1,11 @@
-from distutils.command.upload import upload
 from django.forms import ModelForm
 from .models import Books,About,User
 from django import forms
 from django_toggle_switch_widget.widgets import DjangoToggleSwitchWidget
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.forms import ModelForm
+
+from image_uploader_widget.widgets import ImageUploaderWidget
 
 
 class BookForm(ModelForm):
@@ -25,8 +26,6 @@ class BookForm(ModelForm):
 
     ))
 
-    image=forms.FileField(required=False)
-    
     
     description=forms.CharField(required=False,label="Description", widget=forms.Textarea(
         attrs={
@@ -46,9 +45,12 @@ class BookForm(ModelForm):
         model=Books
         fields=["title","summary","image","description","content","status"]
         widgets = {
-            "status": DjangoToggleSwitchWidget(klass="django-toggle-switch-dark-primary"),
-           
+            "status": DjangoToggleSwitchWidget(klass="django-toggle-switch-dark-primary"),        
+            'image': ImageUploaderWidget()
+        
         }
+
+
         
         
 class AboutForm(ModelForm):

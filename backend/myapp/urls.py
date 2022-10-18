@@ -14,7 +14,7 @@ urlpatterns = [
     path("list",views.List,name="list"),
     path("delete/<int:id>",views.BookDelete,name="delete"),
     path("about-page",AboutAPI.as_view(),name="abouts"),
-    
     path("logout/",views.userLogout,name="logout"),
+  
    
 ]
