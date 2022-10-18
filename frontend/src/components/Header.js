@@ -1,37 +1,28 @@
 /* eslint-disable */
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import {Nav,Navbar,NavDropdown, Container} from 'react-bootstrap';
 import logo from '../assets/images/logo.png'
 
 const Header = () => {
     return (
-        <div className='container'>
-            <div>
-                <nav className="navbar navbar-expand-md navbar-dark">
-                    <a className="navbar-brand mx-auto" href="#">
-                        
-                    <img src={logo} className='img-fluid' height={200} width={200}></img>
-
-                        </a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">ABOUT </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">COURSES </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">BOOK NOTES</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        <Navbar bg="light" expand="lg">
+        <Container>
+        <RouterLink className="navbar-brand mx-auto" to='/'> 
+        <img src={logo} className='img-fluid' height={100} width={100}></img>
+        </RouterLink>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto  mx-auto">
+              <Nav.Link href="#">
+                <RouterLink to='about'>About</RouterLink>
+              </Nav.Link>
+              <Nav.Link href="javascript:void(0)">
+                <RouterLink to='/'>Courses</RouterLink>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
     );
 }

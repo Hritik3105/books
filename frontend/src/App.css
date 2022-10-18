@@ -83,3 +83,24 @@ body {
 a.nolink.book__title {
   text-decoration: none;
 }
+
+.nav-link a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-link a:hover {
+  color: #000;
+}
+
+.nav-link.active a {
+  color: #3897D3;
+  font-weight: bold;
+  border-bottom: 2px solid #3897D3;
+  padding-bottom: 5px;
+}
+.norecord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

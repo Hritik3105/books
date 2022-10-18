@@ -1,9 +1,10 @@
 from distutils.command.upload import upload
 from django.forms import ModelForm
-from .models import Books,About
+from .models import Books,About,User
 from django import forms
 from django_toggle_switch_widget.widgets import DjangoToggleSwitchWidget
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.forms import ModelForm
 
 
 class BookForm(ModelForm):
@@ -60,7 +61,51 @@ class AboutForm(ModelForm):
         fields=["content"]
         
 
+
+class AddCreateForm(ModelForm):
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={
+        'class':'form-control',
+        'placeholder':'Username'
+        }
+    ))
+    
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={
+        'class':'form-control',
+        'placeholder':'Email'
+        }
+    ))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+        'class':'form-control',
+        'placeholder':'Password'
+        }
+    ))
+
+
+    class Meta:
+        model = User
+        fields = ["username","email","password"]
         
 
         
-    
+class LoginForm(forms.Form):
+    email = forms.CharField(widget=forms.TextInput(
+    attrs={
+ 
+    'placeholder':'Email'
+    }
+))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+       
+        'placeholder':'Password'
+        }
+    ))
+
+    class Meta:
+        model = User
+        fields = ["email","password"]
+        
+        

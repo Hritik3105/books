@@ -2,8 +2,6 @@
 import React from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import global from '../utils/Global';
-import one from '../assets/images/die.jpeg'
-import two from '../assets/images/two.jpg'
 import { getBooks } from '../utils/Api';
 const Home = () => {
     const [books, Setbooks] = React.useState([])
@@ -19,7 +17,7 @@ const Home = () => {
         <div className='container'>
             <div className='row'>
                 <h1 className='py-3 pb-5' style={{ fontSize: '2.25rem', fontWeight: 700 }}>Book Summaries</h1>
-                {books.length> 0 ? books.map((item,index)=>(
+                {books?.length> 0 ? books.map((item,index)=>(
                     <div className='col-md-6'>
                         <div className='row pb-5  mb-3 bookart_main'>
                             <div className='col-md-4 book__art'>
@@ -39,7 +37,11 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-)):<p>No Records Found</p>}
+                )):
+                <div className='norecord'>
+                    
+                    <p>No Records Found</p>
+                    </div>}
                 
             </div>
         </div>

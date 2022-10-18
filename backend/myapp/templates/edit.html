@@ -16,11 +16,12 @@
 </style>
 
 {%include 'sidebar.html'%}
-
+<div class="page-wrapper1">
     <div id="page-wrapper">
         <div class="container-fluid">
             <!-- Page Heading -->
-            <div class="row" id="main">
+            <div class="row" id="main"style="display: flex;
+            justify-content: center;">
               
                  <div class="col-md-12 book">
                 
@@ -30,7 +31,7 @@
                         {% csrf_token %}
                         <label for="exampleInputEmail1" class="form-label" >Title</label>
                         {{form.title}}<br>
-                        <label for="exampleInputEmail1" class="form-label">Summary</label>
+                        <label for="exampleInputEmail1" class="form-label">Sub Title</label>
                         {{form.summary}}<br>
                         <label for="exampleInputEmail1" class="form-label">Image</label>
                         {{form.image}}<br>
@@ -85,7 +86,7 @@
       
     </div>
    
- 
+</div>
     <!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
 <script>

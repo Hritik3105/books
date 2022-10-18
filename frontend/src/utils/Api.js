@@ -1,10 +1,6 @@
 import Axios from 'axios';
 import global from './Global';
 Axios.defaults.baseURL = `${global.serverUrl}`;
-// var TOKEN = localStorage.getItem('token');
-// console.log('Apiiii', TOKEN)
-// Axios.defaults.headers.common['x-access-token'] = TOKEN
-
 
   //Get All Books
   export async function getBooks() {
@@ -36,7 +32,7 @@ Axios.defaults.baseURL = `${global.serverUrl}`;
 
   //About Us
   export async function getAbout() {
-    const DATA = await Axios.get('/about',{
+    const DATA = await Axios.get('/about-page',{
     }).then((res) => {
       if (res.data === 200) {
         return res.data;

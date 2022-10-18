@@ -1,9 +1,10 @@
-from ast import Delete
-from gc import get_objects
+
+from django.contrib import auth
+from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from django.shortcuts import render,redirect
-from .form import BookForm,AboutForm
-from .serializers import BookSerializer, ContentSerializer
+from .form import BookForm,AboutForm,AddCreateForm,LoginForm
+from .serializers import BookSerializer, ContentSerializer,AboutSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
@@ -11,7 +12,34 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlsplit
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render,redirect
+from myapp.models import *
+from django.contrib.auth import authenticate, login,logout
 # Create your views here.
+
+
+
+def user_login(request):
+    
+  if request.method == "POST":
+
+    form = LoginForm(request.POST)
+    if form.is_valid():
+      uname = form.cleaned_data.get('email')
+      print("ghfg",uname)
+      password = form.cleaned_data.get('password')
+      print("thyt",password)
+      user = authenticate(username=uname, password=password)
+      if user is not None:
+        login(request, user)
+        return redirect("home")
+      else:
+        messages.error(request,"Invalid username or password.")
+    else:
+      return render(request,"login.html",{'form':form})
+  form = LoginForm()
+  return render(request, "login.html",{"form":form})
+
 
 
 def AddBook(request):
@@ -25,7 +53,7 @@ def AddBook(request):
             print(post_item.content)
             messages.success(request,"Data submitted successfully")
             
-            return redirect("/")
+            return redirect("home")
         else:
             
             
@@ -48,7 +76,7 @@ def AddContent(request):
                 
                 post_item.save()
                 print(post_item.content)
-                messages.success(request,"Data submitted successfully")
+                messages.success(request,"Books submitted successfully")
                 
                 return redirect("about")
             else:
@@ -62,8 +90,7 @@ def AddContent(request):
         val2=AboutForm(request.POST,request.FILES)
         if val2.is_valid():
             post=val2.save(False)
-            
-            print("lllllllllllllllllss",post.content)
+    
             updt=About.objects.filter(id=item.id).update(content=post.content)
             return render(request,"about.html",{"form":val2,"status":1})  
         
@@ -131,15 +158,17 @@ def List(request):
 def EditBook(request,id):
     if request.method=="POST":
         item=get_object_or_404(Books,id=id)
-        form=BookForm(request.POST,instance=item)
+        form=BookForm(request.POST,request.FILES,instance=item)
         print(form)
+
         if form.is_valid():
-            form.save()
-        messages.success(request,"Data Edit successfully")
+            z=form.save()
+       
+        messages.success(request,"Books Edit successfully")
         return redirect('list')
     
     item=get_object_or_404(Books,id=id)
-    print(item.content)
+    
     
     form=BookForm(instance=item)
    
@@ -153,3 +182,38 @@ def BookDelete(request,id):
 
 
 
+class AboutAPI(APIView):
+    def get(self,request):
+        book_obj=About.objects.all()
+        for i in book_obj:
+            print(i)
+        serializer=AboutSerializer(i)
+        z=request.build_absolute_uri('/').strip("/")     
+        input_str = serializer.data["content"]
+            
+        soup = BeautifulSoup(input_str, "html.parser")
+        check=soup.find("img")
+    
+        if check != None:
+            img_url = soup.find('img')['src']
+            new_url = urlsplit(img_url)._replace(query=None).geturl()
+            soup.find('img')['src'] = z+img_url
+        
+            resp={
+                "content":str(soup)
+                
+            }
+            return Response(resp)    
+        else:
+            resp={
+                "content":input_str
+                
+            }
+            return Response(resp)
+
+
+
+@csrf_exempt
+def userLogout(request):
+  auth.logout(request)
+  return redirect('/')
