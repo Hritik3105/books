@@ -1,3 +1,4 @@
+
 from django.forms import ModelForm
 from .models import Books,About,User
 from django import forms
@@ -25,8 +26,9 @@ class BookForm(ModelForm):
         }
 
     ))
-
-    
+    image = forms.ImageField(required=False,widget=ImageUploaderWidget())
+   
+   
     description=forms.CharField(required=False,label="Description", widget=forms.Textarea(
         attrs={
         'class':'form-control',
@@ -46,7 +48,7 @@ class BookForm(ModelForm):
         fields=["title","summary","image","description","content","status"]
         widgets = {
             "status": DjangoToggleSwitchWidget(klass="django-toggle-switch-dark-primary"),        
-            'image': ImageUploaderWidget()
+            
         
         }
 

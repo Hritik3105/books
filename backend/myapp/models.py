@@ -28,7 +28,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 class Books(models.Model):
     title=models.CharField(max_length=200,null=True)
     summary=models.TextField(null=True)
-    image=models.FileField(null=True)
+    image=models.FileField(null=True,blank=True)
     description=models.TextField(null=True)
     status=models.BooleanField(null=True)
     created_at=models.DateTimeField(auto_now_add=True,null=True)

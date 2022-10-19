@@ -342,6 +342,9 @@ a.addbook {
     min-width: 148px;
     margin-bottom: 8px;
 }
+.iuw-root {
+    max-width: 431px;
+}
 @media(min-width:768px) {
     body {
         width: 100%;

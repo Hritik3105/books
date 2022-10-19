@@ -42,6 +42,7 @@ def user_login(request):
 def AddBook(request):
     if request.method =="POST":
         form1=BookForm(request.POST,request.FILES)
+       
         if form1.is_valid():  
             post_item=form1.save()
             post_item.save()
