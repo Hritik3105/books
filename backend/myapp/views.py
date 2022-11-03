@@ -91,7 +91,7 @@ def AddContent(request):
 #SHOW LIST OF BOOK
 class Book(APIView):
     def get(self,request):
-        book_obj=Books.objects.all()
+        book_obj=Books.objects.filter(status=True)
         serializer=BookSerializer(book_obj,many="true")
         return Response(serializer.data)
 
@@ -129,7 +129,7 @@ class Content(APIView):
                 resp={
                     "id":serializer.data["id"],
                     "content":input_str
-                    
+                        
                 }
                 return Response(resp)
         resp={

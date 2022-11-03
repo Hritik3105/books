@@ -110,6 +110,7 @@ WSGI_APPLICATION = 'myproj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -119,6 +120,7 @@ DATABASES = {
         "HOST":"localhost",
         'OPTIONS': {
          "init_command": "SET foreign_key_checks = 0;",
+          
     },
         
     }
