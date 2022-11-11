@@ -13,6 +13,9 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render,redirect
 from myapp.models import *
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+
+
 
 
 # Create your views here.
@@ -39,6 +42,7 @@ def user_login(request):
 
 
 #ADD BOOK CONTENT
+
 def AddBook(request):
     if request.method =="POST":
         form1=BookForm(request.POST,request.FILES)
@@ -57,6 +61,7 @@ def AddBook(request):
 
 
 #ADD CONTENT
+
 def AddContent(request):
     val_obj=About.objects.all()
     if len(val_obj) ==0:
@@ -89,6 +94,8 @@ def AddContent(request):
 
 
 #SHOW LIST OF BOOK
+
+
 class Book(APIView):
     def get(self,request):
         book_obj=Books.objects.filter(status=True)
@@ -137,7 +144,8 @@ class Content(APIView):
         }
         return Response(resp)
         
-#FOR DATATABLE             
+#FOR DATATABLE 
+         
 def List(request):   
     val=Books.objects.all() 
     user=User.objects.filter(id=request.user.id)
@@ -145,6 +153,7 @@ def List(request):
 
     
 #EDIT BOOK
+
 def EditBook(request,id):
     if request.method=="POST":
         item=get_object_or_404(Books,id=id)
@@ -161,6 +170,7 @@ def EditBook(request,id):
 
 
 #DELETE BOOK
+
 def BookDelete(request,id):
     dele=get_object_or_404(Books,id=id)
     dele.delete()
@@ -200,6 +210,7 @@ class AboutAPI(APIView):
 
 #DELETE
 @csrf_exempt
+
 def userLogout(request):
   auth.logout(request)
   return redirect('/')

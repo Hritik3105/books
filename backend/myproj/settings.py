@@ -86,7 +86,11 @@ CORS_ALLOWED_ORIGINS = [
 ROOT_URLCONF = 'myproj.urls'
 AUTH_USER_MODEL = 'myapp.user'
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 TEMPLATES = [
     {
@@ -113,8 +117,8 @@ WSGI_APPLICATION = 'myproj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'book',
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'books',
         "USER":"root",
         "PASSWORD":"",
         "HOST":"localhost",
@@ -168,6 +172,10 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static/'),
 ]
 STATIC_URL = 'static/'
+
+
+
+
 MEDIA_URL=''
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 CKEDITOR_UPLOAD_PATH = ""
